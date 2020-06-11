@@ -1,0 +1,4 @@
+{
+    "name": "catPackage",
+    "main": "./cat.js"
+}
