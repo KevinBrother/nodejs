@@ -1,0 +1,4 @@
+{
+    "name": "base_module",
+    "main": "./http.js"
+}

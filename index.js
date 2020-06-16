@@ -19,6 +19,7 @@ var moduleExports1 = require('./moduleExports/moduleExports1')
 
 // 5. 导入 包
 var cat = require('./catPackage')
+var baseModule = require('./baseModule')
 console.log(cat);
 
 

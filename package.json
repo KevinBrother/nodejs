@@ -4,8 +4,13 @@
     "description": "nodejs demo",
     "main": "index.js",
     "scripts": {
-        "start": "node index.js"
+        "start": "node index.js",
+        "baseModule": "node base_module"
     },
     "author": "",
-    "license": "ISC"
+    "license": "ISC",
+    "dependencies": {
+        "art-template": "^4.13.2",
+        "express": "^4.17.1"
+    }
 }
