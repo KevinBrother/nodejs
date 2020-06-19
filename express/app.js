@@ -18,5 +18,7 @@ app.get('/nodemon', function (req, res) {
 
 
 app.listen(3000, function () {
+    // nodemon app.js
     console.log(' app is running at http://localhost:3000');
 })
+
