@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>编辑学生</h1>
+        <form action="/students/update" method="POST">
+            <input type="hidden" name="id" value="{{student.id}}" id="" />
+            <label for="">姓名</label>
+            <input type="text" name="name" value="{{student.name}}" id="" />
+            <br />
+            <label for="">年龄</label>
+            <input type="text" name="age" value="{{student.age}}" id="" />
+            <br />
+            <label for="">性别:</label>
+            男：
+            <input type="radio" name="gender" value="男" id="" />
+            女：
+            <input type="radio" name="gender" value="女" id="" />
+            <br />
+            <button type="submit">编辑学生</button>
+        </form>
+    </body>
+</html>

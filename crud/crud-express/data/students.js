@@ -42,28 +42,32 @@ exports.delete = function (id, callback) {
 /**
  * @description: 更新某个学生信息
  */
-exports.update = function (callback) {
-    fs.readFile(url, (err, data) => {
-        if (err) {
-            callback(err)
+exports.update = function (student, callback) {
+    readStudents(callback, students => {
+
+        let idx = students.findIndex(item => item.id === student.id)
+        if (idx === -1) {
+            return callback(`没有该用户id ${student.id}`)
         }
-        callback(null, JSON.parse(data).students)
+        students[idx] = student
+
+        writeStudents(callback, students)
+
     })
 }
 
 /**
  * @description: 查找某个学生
  */
-exports.findById = function (callback) {
-    /* fs.readFile(url, (err, data) => {
-        if (err) {
-            callback(err)
-        }
-        callback(null, JSON.parse(data).students)
-    }) */
-
+exports.findById = function (id, callback) {
     readStudents(callback, students => {
-        callback(null, students)
+
+        let student = students.find(item => item.id === id)
+        if (!student) {
+            return callback(`没有该用户id ${id}`)
+        }
+
+        callback(null, student)
     })
 }
 

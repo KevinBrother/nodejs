@@ -41,7 +41,7 @@ router.get('/students', function (req, res) {
     Students.find((err, data) => {
         if (err) {
             console.log(err);
-            return res.status(500).send('Server err')
+            return res.status(500).send(`Server err ${err}`)
         }
 
         res.render('students.html', {
@@ -59,7 +59,7 @@ router.post('/students/add', (req, res) => {
     Students.add(req.body, (err) => {
         if (err) {
             console.log(err);
-            return res.status(500).send('Server err')
+            return res.status(500).send(`Server err ${err}`)
         }
         res.redirect('/students')
     })
@@ -84,14 +84,21 @@ router.get('/students/delete', (req, res) => {
  * @description: 更新某个学生信息
  */
 router.post('/students/update', (req, res) => {
-    Students.add((err, data) => {
+    let { id, name, gender, age } = req.body
+
+    let student = {
+        id: parseInt(id),
+        name,
+        gender,
+        age
+    }
+
+    Students.update(student, (err) => {
         if (err) {
             console.log(err);
-            return res.status(500).send('Server err')
+            return res.status(500).send(`Server err ${err}`)
         }
-        res.render('students.html', {
-            students: data
-        })
+        res.redirect('/students')
     })
 })
 
@@ -101,13 +108,13 @@ router.post('/students/update', (req, res) => {
 router.get('/students/findById', (req, res) => {
     let id = parseInt(req.query.id)
 
-    Students.add((err, data) => {
+    Students.findById(id, (err, data) => {
         if (err) {
             console.log(err);
-            return res.status(500).send('Server err')
+            return res.status(500).send(`Server err ${err}`)
         }
-        res.render('students.html', {
-            students: data
+        res.render('detail.html', {
+            student: data
         })
     })
 })
