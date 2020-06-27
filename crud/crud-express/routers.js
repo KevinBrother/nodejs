@@ -38,16 +38,6 @@ router.post('/login', function (req, res) {
  * @description: 返回学生列表
  */
 router.get('/students', function (req, res) {
-    /* fs.readFile('./data/students.json', (err, data) => {
-        if (err) {
-            return res.status(500).send('Server err')
-        }
-        let students = JSON.parse(data).students
-
-        res.render('students.html', {
-            students
-        })
-    }) */
     Students.find((err, data) => {
         if (err) {
             console.log(err);
@@ -79,8 +69,7 @@ router.post('/students/add', (req, res) => {
  * @description: 删除某个学生
  */
 router.get('/students/delete', (req, res) => {
-    let id = req.query.id
-    console.log('id', id);
+    let id = parseInt(req.query.id)
 
     Students.delete(id, (err) => {
         if (err) {
@@ -109,7 +98,9 @@ router.post('/students/update', (req, res) => {
 /**
  * @description: 查找某个学生
  */
-router.post('/students/find', (req, res) => {
+router.get('/students/findById', (req, res) => {
+    let id = parseInt(req.query.id)
+
     Students.add((err, data) => {
         if (err) {
             console.log(err);

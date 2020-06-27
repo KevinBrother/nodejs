@@ -20,6 +20,7 @@
                 <td>{{$value.name}}</td>
                 <td>{{$value.age}}</td>
                 <td>{{$value.gender}}</td>
+                <td><a href="/students/findById?id={{$value.id}}">编辑</a></td>
                 <td><a href="/students/delete?id={{$value.id}}">删除</a></td>
             </tr>
             {{/each}}
