@@ -2,6 +2,8 @@
 let express = require('express')
 let app = express()
 
+
+// app.engine(ext, callback)
 app.engine('html', require('express-art-template'))
 
 // 默认访问views目录中的文件,下面是设置其他默认访问目录
