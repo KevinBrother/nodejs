@@ -22,9 +22,5 @@ app.listen(3000, function () {
     console.log(' app is running at http://localhost:3000');
 })
 
-var s = {
-    name: "张三",
-    age: 18,
-    gender: "男"
-}
+module.exports = app
 
